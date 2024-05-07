@@ -102,6 +102,7 @@ class Bomb:
         self.rct.center = random.randint(0, WIDTH), random.randint(0, HEIGHT)
         self.vx, self.vy = +5, +5
 
+
     def update(self, screen: pg.Surface):
         """
         爆弾を速度ベクトルself.vx, self.vyに基づき移動させる
@@ -115,6 +116,13 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+
+class Explosion:
+    def __init__(self):
+        bb_img = pg.image.load("fig/explision.gif")
+        fbb_ing = pg.transform.flip(bb_img, True, False)
+
+        
 class Beam:
     def __init__(self, bird: Bird):
         self.img = pg.transform.rotozoom(pg.image.load("fig/beam.png"), 0, 2.0)
@@ -131,6 +139,7 @@ class Beam:
         if check_bound(self.rct) == (True, True):
             self.rct.move_ip(self.vx, self.vy)
             screen.blit(self.img, self.rct)
+
 
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
