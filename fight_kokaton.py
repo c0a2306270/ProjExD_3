@@ -115,7 +115,6 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
-
 class Beam:
     def __init__(self, bird: Bird):
         self.img = pg.transform.rotozoom(pg.image.load("fig/beam.png"), 0, 2.0)
